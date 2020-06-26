@@ -22,3 +22,7 @@ file-loader 加强版 url-loader
 url-loader 可以把小图片转化成 base64，减少 http 的请求
 
 命名，路径
+
+### 第三方字体
+
+url-loader 处理

@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -49,6 +50,8 @@ module.exports = {
     contentBase: './dist',
     port: 8081,
     open: true,
+    hot: true,
+    hotOnly: true, // 关闭浏览器自动刷新
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
@@ -61,5 +64,6 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
+    // new webpack.HotModuleReplacementPlugin(),
   ],
 };

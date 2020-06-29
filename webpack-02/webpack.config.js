@@ -49,6 +49,11 @@ module.exports = {
     contentBase: './dist',
     port: 8081,
     open: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+      },
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),

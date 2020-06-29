@@ -1,6 +1,6 @@
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -8,6 +8,7 @@ module.exports = {
     filename: 'build.js',
   },
   mode: 'production',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -44,6 +45,11 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    contentBase: './dist',
+    port: 8081,
+    open: true,
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new htmlWebpackPlugin({
@@ -51,4 +57,4 @@ module.exports = {
       filename: 'index.html',
     }),
   ],
-}
+};

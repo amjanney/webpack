@@ -10,6 +10,14 @@ module.exports = {
   },
   mode: 'production',
   devtool: 'source-map',
+  resolve: {
+    modules: [path.resolve(__dirname, './node_modules')],
+    alias: {
+      '@src': path.resolve(__dirname, './src'),
+      '@assets': path.resolve(__dirname, './src/images'),
+    },
+    extensions: ['.js', 'json'],
+  },
   module: {
     rules: [
       {

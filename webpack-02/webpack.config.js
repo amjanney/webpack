@@ -17,10 +17,13 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        include: path.resolve(__dirname, './src'), // 官方推荐使用
+        // exclude: path.resolve(__dirname, './node_modules'),
         test: /\.less$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
       },
       {
+        include: path.resolve(__dirname, './src'), // 官方推荐使用
         test: /\.(png|jpe?g|gif|webp)$/,
         use: {
           // loader: 'file-loader',
@@ -33,6 +36,7 @@ module.exports = {
         },
       },
       {
+        include: path.resolve(__dirname, './src'), // 官方推荐使用
         test: /\.(eot|ttf|woff|woff2|svg)$/,
         use: {
           // loader: 'file-loader',
@@ -45,8 +49,9 @@ module.exports = {
         },
       },
       {
+        include: path.resolve(__dirname, './src'), // 官方推荐使用
         test: /\.js$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         loader: 'babel-loader',
       },
     ],

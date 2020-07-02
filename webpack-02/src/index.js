@@ -44,7 +44,7 @@ import ReactDom from 'react-dom';
 
 class App extends Component {
   render() {
-    return <div></div>;
+    return <div className='logo'></div>;
   }
 }
 ReactDom.render(<App />, document.getElementById('app'));

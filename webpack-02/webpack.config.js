@@ -33,7 +33,12 @@ module.exports = {
         // exclude: path.resolve(__dirname, './node_modules'),
         test: /\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
           // 'style-loader',
           'css-loader',
           'postcss-loader',
@@ -94,7 +99,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name]_[hash:6].css',
+      filename: 'css/[name]_[contenthash:6].css',
     }),
   ],
 };

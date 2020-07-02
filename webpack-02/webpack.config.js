@@ -49,15 +49,42 @@ module.exports = {
       {
         include: path.resolve(__dirname, './src'), // 官方推荐使用
         test: /\.(png|jpe?g|gif|webp)$/,
-        use: {
-          // loader: 'file-loader',
-          loader: 'url-loader',
-          options: {
-            name: '[name]_[hash:6].[ext]',
-            outputPath: 'images/',
-            limit: 1024, // 不超过大小转化成base64格式，10kb都可以转化为base64
+        use: [
+          {
+            // loader: 'file-loader',
+            loader: 'url-loader',
+            options: {
+              name: '[name]_[hash:6].[ext]',
+              outputPath: 'images/',
+              limit: 1024, // 不超过大小转化成base64格式，10kb都可以转化为base64
+            },
           },
-        },
+          // 图片压缩
+          // {
+          //   loader: 'image-webpack-loader',
+          //   options: {
+          //     mozjpeg: {
+          //       progressive: true,
+          //       quality: 65,
+          //     },
+          //     // optipng.enabled: false will disable optipng
+          //     optipng: {
+          //       enabled: false,
+          //     },
+          //     pngquant: {
+          //       quality: [0.65, 0.9],
+          //       speed: 4,
+          //     },
+          //     gifsicle: {
+          //       interlaced: false,
+          //     },
+          //     // the webp option will enable WEBP
+          //     webp: {
+          //       quality: 75,
+          //     },
+          //   },
+          // },
+        ],
       },
       {
         include: path.resolve(__dirname, './src'), // 官方推荐使用

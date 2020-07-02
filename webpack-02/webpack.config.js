@@ -2,11 +2,15 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'build.js',
+    filename: '[name]_[hash:8].js',
+    // cdn地址,自动关联到html
+    // publicPath: 'https://test.com/test',
   },
   mode: 'production',
   devtool: 'source-map',
@@ -28,7 +32,13 @@ module.exports = {
         include: path.resolve(__dirname, './src'), // 官方推荐使用
         // exclude: path.resolve(__dirname, './node_modules'),
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          // 'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'less-loader',
+        ],
       },
       {
         include: path.resolve(__dirname, './src'), // 官方推荐使用
@@ -83,5 +93,8 @@ module.exports = {
       filename: 'index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name]_[hash:6].css',
+    }),
   ],
 };

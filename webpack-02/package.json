@@ -23,6 +23,7 @@
     "html-webpack-plugin": "^4.3.0",
     "less": "^3.11.3",
     "less-loader": "^6.1.2",
+    "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
@@ -33,6 +34,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
     "axios": "^0.19.2",
+    "core-js": "^3.6.5",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

@@ -1,9 +1,8 @@
 @font-face {
   font-family: 'webfont';
   font-display: swap;
-  src: url('../iconfont/webfont.woff2') format('woff2');
+  src: url(iconfont/webfont_c8318e.woff2) format('woff2');
 }
-
 .web-font {
   font-family: 'webfont' !important;
   font-size: 16px;
@@ -11,13 +10,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 body {
   background: greenyellow;
-  // display: flex;
+}
+div:nth-of-type(odd) {
+  background: #0400ff;
+  background-image: url(images/logo_cfa13b.png);
 }
 
-div:nth-of-type(odd) {
-  background: rgb(4, 0, 255);
-  background-image: url('~@assets/logo.png');
-}
+
+/*# sourceMappingURL=main_d49636.css.map*/

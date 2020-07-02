@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -100,6 +101,12 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name]_[contenthash:6].css',
+    }),
+    new OptimizeCSSAssetsPlugin({
+      cssProcessor: require('cssnano'), //引⼊cssnano配置压缩选项
+      cssProcessorOptions: {
+        discardComments: { removeAll: true },
+      },
     }),
   ],
 };

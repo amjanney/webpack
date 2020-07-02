@@ -97,6 +97,12 @@ module.exports = {
     new htmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
+      minify: {
+        // 压缩HTML⽂件
+        removeComments: true, // 移除HTML中的注释
+        collapseWhitespace: true, // 删除空⽩符与换⾏符
+        minifyCSS: true, // 压缩内联css
+      },
     }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
